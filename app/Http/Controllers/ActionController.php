@@ -25,7 +25,7 @@ class ActionController extends Controller
             $roles = Role::all();
         */
 
-        $actions=DB::table('actions')->orderBy('uri', 'asc')->paginate(15);
+        $actions=DB::table('actions')->orderBy('uri', 'asc')->paginate(10);
         $roles=DB::table('roles')->lists('role','id');
         $actionsIdList=[];
         foreach($actions AS $val){
@@ -77,11 +77,12 @@ class ActionController extends Controller
     {
         //
         $action = [];
+        $action['method'] = $request->input('method');
         $action['uri'] = $request->input('uri');
         $action['action'] = $request->input('action');
 
         Action::create($action);
-        return redirect(route('allAction'));
+        return redirect(route('addAction'));
     }
 
     /**

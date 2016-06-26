@@ -45,10 +45,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @param  String permission Slug of a permission (i.e: manage_user)
      * @return Boolean true if has permission, otherwise false
      */
+    /*
     public function hasRole($permission = null)
     {
         return !is_null($permission) && $this->checkPermission($permission);
     }
+
 
     /**
      * Check if the permission matches with any permission user has
@@ -56,6 +58,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @param  String permission slug of a permission
      * @return Boolean true if permission exists, otherwise false
      */
+    /*
     protected function checkPermission($perm)
     {
         $permissions = $this->getAllPernissionsFormAllRoles();
@@ -71,7 +74,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @return Array of permission slugs
      */
 
-
+/*
     protected function getAllPernissionsFormAllRoles()
     {
         $permissionsArray = [];
@@ -96,11 +99,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @return QueryBuilder Object
      */
+/*
     public function roles()
     {
         return $this->belongsToMany('App\Role');
     }
-/*
+
     public function profiles()
     {
         return $this->belongsTo(\App\User::class);

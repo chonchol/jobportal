@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{URL::asset('assets/plugins/owl-carousel/owl.carousel.css')}}">
     <link href="{{URL::asset('css/404.css') }}" rel="stylesheet" type="text/css"/>
 
+
   </head>
 
       <body>
@@ -32,7 +33,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="#" class="navbar-brand"><span class="logo"><i class="fa fa-recycle"></i> AmarJobs</span></a>
+                        <a href="{{url('/')}}" class="navbar-brand"><span class="logo"><i class="fa fa-recycle"></i> AmarJobs</span></a>
                     </div>
 
                     <div class="navbar-collapse collapse">
@@ -63,9 +64,16 @@
 
     <div class="footer">
         <div class="container">
-            <ul class="pull-right footer-menu">
-                <li> &copy; 2016 AmarJobs </li>
-            </ul>
+        <ul class="pull-left footer-menu">
+            <li>
+                <a href="index.php"> Home </a>
+                <a href="about.php"> About us </a>
+                <a href="contact.php"> Contact us </a>
+            </li>
+        </ul>
+        <ul class="pull-right footer-menu">
+            <li> &copy; 2015 AmarJobs </li>
+        </ul>
         </div>
     </div>
 <!-- Essentials -->

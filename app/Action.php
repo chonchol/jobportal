@@ -8,7 +8,7 @@ class Action extends Model
 {
     //
     protected $table = "actions";
-    public $fillable = ['uri','action'];
+    public $fillable = ['method','uri','action'];
 /*
     public function permissions()
     {

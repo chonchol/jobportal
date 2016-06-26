@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <!DOCTYPE html>
 
 <html>
@@ -20,6 +18,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{URL::asset('css/_all-skins.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/skin-green-light.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/jquery-ui.css')}}">
 
   </head>
@@ -30,7 +29,7 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <a href="#" class="logo">
+        <a href="{{url('/')}}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>AJB</b></span>
           <!-- logo for regular state and mobile devices -->
@@ -171,6 +170,12 @@
               </div>
             </div>
             <div class="box-body">
+                @if(Session::has('flash_message'))
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="alert alert-success">
+                        {{Session::get('flash_message')}}
+                    </div>
+                @endif
               @yield('content')
             </div><!-- /.box-body -->
           </div><!-- /.box -->

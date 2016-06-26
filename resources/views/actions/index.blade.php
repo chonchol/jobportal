@@ -8,6 +8,7 @@
         <table id="example2" class="table table-bordered table-hover" width="100%">
             <thead>
             <tr>
+                <th># Method</th>
                 <th>URI</th>
                 <th>Action</th>
                 @foreach($roles as $roleKey=>$roleVal)
@@ -21,6 +22,7 @@
             ?>
             @foreach($actions as $action)
                 <tr>
+                    <td>{{$action->method}}</td>
                     <td>{{$action->uri}}</td>
                     <td>{{$action->action}}</td>
                     <?php reset($roles) ?>

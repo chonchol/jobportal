@@ -11,11 +11,21 @@
 |
 */
 
+Route::group(['middleware' => ['PublicMiddleware']], function () {
+
+});
+
 Route::group(['middleware' => ['web']], function () {
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+    Route::get('/','WelcomeController@index');
+    Route::get('/login', 'Auth\AuthController@getLogin');
+    Route::post('/login', 'Auth\AuthController@postLogin');
+    Route::get('/logout', 'Auth\AuthController@getLogout');
+
+    // Registration routes...
+    Route::get('/register', 'Auth\AuthController@getRegister');
+    Route::post('/register', 'Auth\AuthController@postRegister');
 
 Route::auth();
 
@@ -43,7 +53,7 @@ Route::group(['prefix' => 'degrees','middleware' => 'auth'], function () {
 
 
 // Profiles Cover Letter Route
-Route::group(['prefix' => 'coverletters','middleware' => ['auth','acl']], function () {
+Route::group(['prefix' => 'coverletters','middleware' => 'auth'], function () {
     Route::get('all', ['as' => 'allCoverLetter' , 'uses' => 'CoverLetterController@index']);
     Route::get('add', ['as' => 'addCoverLetter', 'uses' => 'CoverLetterController@create']);
     Route::get('edit/{id}', ['as' => 'editCoverLetter', 'uses' => 'CoverLetterController@edit']);
@@ -99,15 +109,7 @@ Route::group(['prefix' => 'profiles','middleware' => 'auth'], function () {
 });
 
 // Jobseeker Profiles Education Route
-Route::group(['prefix' => 'education','middleware' => 'auth'], function () {
-    Route::get('all', ['as' => 'allEducation' , 'uses' => 'EducationController@index']);
-    Route::get('add', ['as' => 'addEducation', 'uses' => 'EducationController@create']);
-    Route::get('edit/{id}', ['as' => 'editEducation', 'uses' => 'EducationController@edit']);
-    Route::post('save', ['as' => 'saveEducation', 'uses' => 'EducationController@store']);
-    Route::put('update', ['as' => 'updateEducation', 'uses' => 'EducationController@update']);
-    Route::get('delete/{id}', ['as' => 'deleteEducation', 'uses' => 'EducationController@destroy']);
 
-});
 
 
 // Jobs Company Route
@@ -185,6 +187,7 @@ Route::group(['prefix' => 'actions','middleware' => 'auth'], function () {
 
 
 Route::get('/home', 'HomeController@index');
+Route::get('/cat', 'CategoryController@index');
 
 });
 
