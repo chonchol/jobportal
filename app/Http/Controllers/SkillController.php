@@ -41,11 +41,16 @@ class SkillController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+        'skillName' => 'required',
+        ]);
+
         $skill = [];
         $skill['sortInd'] = $request->input('sortInd');
         $skill['skillName'] = $request->input('skillName');
         
         Skill::create($skill);
+        \Session::flash('flash_message','Skill has been added successfully!');
         return redirect(route('addSkill'));
     }
 

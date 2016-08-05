@@ -53,7 +53,7 @@ Route::group(['prefix' => 'degrees','middleware' => 'auth'], function () {
 
 
 // Profiles Cover Letter Route
-Route::group(['prefix' => 'coverletters','middleware' => 'auth'], function () {
+Route::group(['prefix' => 'about','middleware' => 'auth'], function () {
     Route::get('all', ['as' => 'allCoverLetter' , 'uses' => 'CoverLetterController@index']);
     Route::get('add', ['as' => 'addCoverLetter', 'uses' => 'CoverLetterController@create']);
     Route::get('edit/{id}', ['as' => 'editCoverLetter', 'uses' => 'CoverLetterController@edit']);
@@ -185,7 +185,7 @@ Route::group(['prefix' => 'actions','middleware' => 'auth'], function () {
 });
 
 
-
+Route::get('/details', 'JobDetailsController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/cat', 'CategoryController@index');
 

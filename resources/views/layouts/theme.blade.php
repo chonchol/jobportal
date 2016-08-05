@@ -40,17 +40,20 @@
                         <ul class="nav navbar-nav navbar-right">                            
                             <!-- Authentication Links -->
                             @if (Auth::guest())
-                                <li><a href="{{ url('/login') }}">Login</a></li>
-                                <li><a href="{{ url('/register') }}">Register</a></li>
+                                <li class="new-ads"><a href="{{ url('/') }}" class="btn btn-ads btn-block"><i class="fa fa-heart"></i> FEATURED JOBS</a></li>
+                                <li><a href="{{ url('/login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+                                <li><a href="{{ url('/register') }}"><i class="fa fa-registered " aria-hidden="true"></i> Register</a></li>
+
                             @else
-                                <li class="new-ads"><a href="{{ url('/home') }}" class="btn btn-ads btn-block"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+                                <li class="new-ads"><a href="{{ url('/') }}" class="btn btn-ads btn-block"><i class="fa fa-heart"></i> FEATURED JOBS</a></li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        {{ Auth::user()->userName }} <span class="caret"></span>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i>
+                                         {{ Auth::user()->userName }} <span class="caret"></span>
                                     </a>
 
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ url('/profiles/add') }}"><i class="fa fa-btn fa-user"></i> View Profile</a></li>
+                                        <li><a href="{{ url('/home') }}"><i class="fa fa-btn fa-dashboard"></i> Dashboard</a></li>
+                                        <li><a href="{{ url('/profiles/add') }}"><i class="fa fa-btn fa-user"></i> My Profile</a></li>
                                         <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Logout</a></li>
                                     </ul>
                                 </li>
@@ -66,9 +69,9 @@
         <div class="container">
         <ul class="pull-left footer-menu">
             <li>
-                <a href="index.php"> Home </a>
-                <a href="about.php"> About us </a>
-                <a href="contact.php"> Contact us </a>
+                <a href="#"> Home </a>
+                <a href="#"> About us </a>
+                <a href="#"> Contact us </a>
             </li>
         </ul>
         <ul class="pull-right footer-menu">

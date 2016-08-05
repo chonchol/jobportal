@@ -41,11 +41,16 @@ class DegreeController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'degreeName' => 'required',
+        ]);
+
         $degree = [];
         $degree['sortInd'] = $request->input('sortInd');
         $degree['degreeName'] = $request->input('degreeName');
         
         Degree::create($degree);
+        \Session::flash('flash_message','Skill has been added successfully!');
         return redirect(route('addDegree'));
     }
 

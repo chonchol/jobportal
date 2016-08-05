@@ -69,4 +69,22 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function getCredentials($request)
+    {
+        $credentials = $request->only($this->loginUsername(), 'password');
+        return array_add($credentials, 'userStatus', '1');
+    }
+
+/*
+        public function authenticated(Request $request, User $user)
+    {
+        if ($user->userStatus) {
+            return redirect()->intended($this->redirectPath());
+        } else {
+            // Raise exception, or redirect with error saying account is not active
+            echo "User inactive";
+        }
+    }
+*/
 }

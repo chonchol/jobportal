@@ -40,12 +40,18 @@ class CoverLetterController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'coverLetterTitle' => 'required',
+            'actualText' => 'required',
+        ]);
+
         $coverletter = new CoverLetter();
         //$coverletter->profileID = Profile::profile()->id;
         $coverletter["coverLetterTitle"] = $request->input('coverLetterTitle');
         $coverletter["actualText"] = $request->input('actualText');
 
         $coverletter->save();
+        \Session::flash('flash_message','Skill has been added successfully!');
         return redirect (route('addCoverLetter'));
     }
 

@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
-class CategoryController extends Controller
+use App\Http\Requests;
+
+class JobDetailsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories = Category::where('id', '>=', 1)->paginate(10);              
-        return view('jobs.allCategory', ['categories' => $categories]);
+        return view('jobs.jobDetails');
     }
 
     /**
@@ -29,7 +27,6 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        return view('jobs.addCategory');
     }
 
     /**
@@ -41,16 +38,6 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-    $this->validate($request, [
-        'categoryName' => 'required|max:255',
-    ]);
-
-        $category = [];
-        $category['sortInd'] = $request->input('sortInd');
-        $category['categoryName'] = $request->input('categoryName');
-        \Session::flash('flash_message','Category has been created Successfully!');
-        Category::create($category);
-        return redirect(route('addCategory'));
     }
 
     /**
@@ -73,8 +60,6 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
-        $category = Category::findOrFail($id);
-        return view('jobs.editCategory', ['id' => $id, 'category' => $category]);
     }
 
     /**
@@ -84,17 +69,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-            //
-            $id = $request->input("id");
-            $category = Category::findOrFail($id);
-            $category->sortInd = $request->input('sortInd');
-            $category->categoryName = $request->input('categoryName');
-            
-            $category->save();
-             
-            return redirect(route('allCategory'));
+        //
     }
 
     /**
@@ -106,9 +83,5 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
-        $category = Category::find($id);
-        $category->delete();
-         
-        return redirect(route('allCategory'));
     }
 }

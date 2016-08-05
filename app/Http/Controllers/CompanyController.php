@@ -42,6 +42,16 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'companyName' => 'required',
+            'city' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email',
+            'website' => 'required',
+            'logo' => 'required',
+        ]);
+
         $company = [];
         $company['companyName'] = $request->input('companyName');
         $company['city'] = $request->input('city');
@@ -54,6 +64,7 @@ class CompanyController extends Controller
         $company['logo'] = $request->input('logo');
 
         Company::create($company);
+        \Session::flash('flash_message','Skill has been added successfully!');
         return redirect(route('addCompany'));
     }
 

@@ -31,16 +31,18 @@
             <div class="col-md-3 col-sm-3">
                 <div class="widget">
                     <div class="widget-header">
-                        <h3>Author Menus</h3>
+                        <h3>My Profile Details</h3>
                     </div>
                     <div class="widget-body">
                         <ul class="author-menus">
-
-                            <li><a href="{{ url('/profiles/add')}}">My Profile</a></li>
+                            <li ><a href="{{ url('/profiles/add')}}">Profile</a></li>
+                            <li><a href="{{ url('/experiences/add')}}">Experiences</a></li>
+                            <li><a href="{{ url('/skills/add')}}">Skills</a></li>
+                            <li><a href="{{ url('/education/add')}}">Education</a></li>
+                            <li><a href="{{ url('/coverletters/add')}}">About Me</a></li>
+                            <li><a href="{{ url('/recomandation/add')}}">Recomandations</a></li>
                             <li><a href="{{ url('/companies/add')}}">Company</a></li>
-                            <li><a href="{{ url('/institiutes/add')}}">Institiutes</a></li>
-                            <li><a href="{{ url('/coverletters/add')}}">Cover Letters</a></li>
-                            <li><a href="#">Signout</a></li>
+                            <li><a href="{{ url('/logout')}}">Signout</a></li>
                         </ul>
                     </div>
                 </div>

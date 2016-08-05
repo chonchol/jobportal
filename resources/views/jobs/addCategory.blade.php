@@ -2,7 +2,7 @@
 @section('title', 'Amar Jobs | All Job Category')
 
 @section('content')
-<a class="btn btn-success badge" href="{{route('addCategory')}}">Add New Category</a>
+@include('common.errors')
 {!! Form::open(array('route' => 'saveCategory', 'class' => 'form-horizontal',  'id'=> 'add-form', 'files' => true)) !!}
 
 <div class="form-group">

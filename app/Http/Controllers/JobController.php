@@ -17,7 +17,7 @@ class JobController extends Controller
     {
         //
         $jobs = Job::where('id','>=',1)->paginate(10);
-        return view('jobs.allJob',['jobs'=>$jobs]);
+        return view('company.allJob',['jobs'=>$jobs]);
     }
 
     /**
@@ -28,7 +28,7 @@ class JobController extends Controller
     public function create()
     {
         //
-        return view('jobs.addJob');
+        return view('company.addJob');
     }
 
     /**
@@ -40,6 +40,19 @@ class JobController extends Controller
     public function store(Request $request)
     {
         //
+    $this->validate($request, [
+        'jobTitle' => 'required|max:255',
+        'jobSummary' => 'required',
+        'jobDescription' => 'required',
+        'jobLocation' => 'required',
+        'applicationEndDate' => 'required',
+        'salary' => 'required|max:255',
+        'applicationInstruction' => 'required',
+        'numberOfPosition' => 'required',
+        'minimumExperience' => 'required',
+        'minimumAge' => 'required',
+    ]);
+
         $job = [];
         $job['jobTitle'] = $request->input('jobTitle');
         $job['jobSummary'] = $request->input('jobSummary');
@@ -56,6 +69,7 @@ class JobController extends Controller
         $job['others'] = $request->input('others');
 
         Job::create($job);
+        \Session::flash('flash_message','Skill has been added successfully!');
         return redirect(route('allJob'));
     }
 
@@ -81,7 +95,7 @@ class JobController extends Controller
         //
         $job = Job::findOrFail($id);
 
-        return view('jobs.editJob',['id'=>$id,'job'=>$job]);
+        return view('company.editJob',['id'=>$id,'job'=>$job]);
     }
 
     /**

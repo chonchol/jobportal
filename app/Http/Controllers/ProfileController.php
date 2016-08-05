@@ -50,7 +50,12 @@ class ProfileController extends Controller
         //
         $this->validate($request, [
         'firstName' => 'required',
+        'middleName' => 'required',
         'lastName' => 'required',
+        'DOB' => 'required',
+        'gender' => 'required',
+        'email' => 'required|email',
+        'phone' => 'required',
         //'profilePic' => 'required',
     ]);
 
@@ -82,7 +87,7 @@ class ProfileController extends Controller
             echo "Please Upload Your Profile Image!";
         }
         $profile->save();
-
+        \Session::flash('flash_message','Profile has been added successfully!');
         return redirect(route('addProfile'));
     }
 

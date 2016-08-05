@@ -42,7 +42,10 @@ class EmployerController extends Controller
     public function store(Request $request)
     {
         //
-        //$employer = [];
+        $this->validate($request,[
+            'companySumamry' => 'required',
+
+            ]);
 
         $employer = new Employer();
         $employer->userID = Auth::user()->id;
@@ -52,6 +55,7 @@ class EmployerController extends Controller
         $employer["companySumamry"] = $request->input("companySumamry");
 
         $employer->save();
+        \Session::flash('flash_message','Skill has been added successfully!');
         //Employer::create($employer);
         return redirect(route("addEmployer"));
     }

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Category;
+use App\Job;
 use App\Http\Requests;
 
 class WelcomeController extends Controller
@@ -15,8 +16,9 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        //
-        return view("welcome");
+        $jobs = Job::all();
+        $categories = Category::all();
+        return view("welcome",compact('categories','jobs'));
     }
 
     /**

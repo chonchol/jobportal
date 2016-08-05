@@ -42,6 +42,16 @@ class InstituteController extends Controller
     public function store(Request $request)
     {
         //
+    $this->validate($request, [
+        'instituteName' => 'required|max:255',
+        'city' => 'required|max:255',
+        'address' => 'required|max:255',
+        'phone' => 'required',
+        'email' => 'required|email',
+        'website' => 'required|max:255',
+        'logo' => 'required|max:255',
+    ]);
+
         $institute = [];
         $institute['instituteName'] = $request->input('instituteName');
         $institute['city'] = $request->input('city');
@@ -54,6 +64,7 @@ class InstituteController extends Controller
         $institute['logo'] = $request->input('logo');
 
         Institute::create($institute);
+        \Session::flash('flash_message','Skill has been added successfully!');
         return redirect(route('addInstitute'));
     }
 

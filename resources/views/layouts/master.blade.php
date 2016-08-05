@@ -18,7 +18,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{URL::asset('css/_all-skins.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('css/skin-green-light.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/select2.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/jquery-ui.css')}}">
 
   </head>
@@ -95,7 +95,7 @@
             <div class="pull-left image">
             </div>
             <div class="pull-left info">
-              <p>{{ Auth::user()->userName }}</p>
+              <p>{{ Auth::user()->profilePic }}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
@@ -115,34 +115,41 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-circle-o text-red"></i>
-                <span>All Jobs</span>
-                <span class="label label-primary pull-right">4</span>
+                <span>Info Setup</span>
+                <i class="fa fa-angle-left pull-right text-red"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{route('allJob')}}"><i class="fa fa-circle-o"></i>Jobs</a></li>
-                <li><a href="{{route('allCategory')}}"><i class="fa fa-circle-o"></i> Category</a></li>
-                <li><a href="{{route('allSkill')}}"><i class="fa fa-circle-o"></i> Skill</a></li>
-                <li><a href="{{route('allDegree')}}"><i class="fa fa-circle-o"></i> Degree</a></li>
-                <li><a href="{{route('allProfile')}}"><i class="fa fa-circle-o"></i> Profile</a></li>
-                <li><a href="{{route('allCompany')}}"><i class="fa fa-circle-o"></i> Company</a></li>
-
+                <li><a href="{{route('allCategory')}}"><i class="fa fa-tags"></i> Category</a></li>
+                <li><a href="{{route('allSkill')}}"><i class="fa fa-asterisk"></i> Skill</a></li>
+                <li><a href="{{route('allDegree')}}"><i class="fa fa-mortar-board"></i> Degree</a></li>
               </ul>
             </li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-circle-o text-yellow"></i>
                 <span>Access Control List</span>
-                <span class="label label-primary pull-right">4</span>
+                <i class="fa fa-angle-left pull-right text-yellow"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{route('allRole')}}"><i class="fa fa-circle-o"></i>Roles</a></li>
-                <li><a href="{{route('allUser')}}"><i class="fa fa-circle-o"></i> Users</a></li>
-                <li><a href="{{route('allAction')}}"><i class="fa fa-circle-o"></i> Permission</a></li>
-              
+                <li><a href="{{route('allRole')}}"><i class="fa fa-tasks"></i>Roles</a></li>
+                <li><a href="{{route('allUser')}}"><i class="fa fa-user"></i> Users</a></li>
+                <li><a href="{{route('allAction')}}"><i class="fa fa-bell"></i> Permission</a></li>
               </ul>
             </li>
-            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+
+            <li class="header">JOB INFO</li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-circle-o text-aqua"></i>
+                <span>Jobs</span>
+                <i class="fa fa-angle-left pull-right text-aqua"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{route('allProfile')}}"><i class="fa fa-line-chart"></i> Profile</a></li>
+                <li><a href="{{route('allCompany')}}"><i class="fa fa-building-o"></i> Company</a></li>
+                <li><a href="{{route('allJob')}}"><i class="fa fa-suitcase"></i>Job Lists</a></li>
+              </ul>
+            </li>
           </ul>
         </section>
         <!-- /.sidebar -->
@@ -206,10 +213,14 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{URL::asset('js/demo.js')}}"></script>
     <script src="{{URL::asset('js/jquery-ui.js')}}"></script>
+    <script src="{{URL::asset('js/select2.min.js')}}"></script>
     <script>
     $(function() {
       $( "#datepicker" ).datepicker();
     });
+  </script>
+  <script type="text/javascript">
+    $(".js-example-basic-multiple").select2();
   </script>
   </body>
 </html>

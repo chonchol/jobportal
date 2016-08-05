@@ -97,10 +97,15 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,[
+            'role' => 'required',
+            ]);
+
         $role = Role::findOrFail($id);
         $role->role = $request->input('role');
 
         $role->save();
+        \Session::flash('flash_message','Skill has been added successfully!');
         return redirect(route('allRole'));
     }
 

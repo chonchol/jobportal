@@ -912,3 +912,143 @@ h2.product-title{
 .skills ul{
 	margin-left: -6%;
 }
+
+
+
+
+
+
+
+
+
+
+.page-header {
+    text-align: center;
+    overflow: hidden;
+    padding: 48px 0px;
+    background: #FAFAFA none repeat scroll 0% 0%;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.41);
+}
+.page-subtitle:not(:empty) {
+    margin-top: -15px;
+}
+.page-subtitle {
+    font: 400 14px Montserrat,sans-serif;
+    margin-top: 0px;
+}
+.page-subtitle ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: outside none none;
+}
+.page-subtitle .single-product .page-header .sale li.onsale, .page-subtitle li.job-type, .single-product .page-header .sale .page-subtitle li.onsale {
+    padding: 3px 10px;
+    border-right: 0px none;
+    display: inline-block;
+}
+.page-subtitle li {
+    padding: 0px 20px;
+    border-right: 1px solid #CCC;
+    display: inline-block;
+}
+.content-area {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.job_listing-description h2, .job_listing-description h3, .job_listing-description h4, .job_listing-description h5, .resume-description h2, .resume-description h3, .resume-description h4, .resume-description h5 {
+    font-weight: 400;
+    margin: 10px 0px;
+}
+
+ul.job_listings, ul.resumes {
+    margin: 0px;
+    padding: 0px;
+    list-style: outside none none;
+    border: 1px solid #CCC;
+    border-radius: 6px;
+    background: #FFF none repeat scroll 0% 0%;
+}
+.job_listing:first-child, .resume:first-child {
+    border-top-left-radius: 4px;
+}
+.job_listing, .resume {
+    border-bottom: 1px solid #CCC;
+    margin: 0px;
+    padding: 1em;
+    position: relative;
+}
+.widget ul li{
+	list-style: none;
+}
+.campaign-feature-image img, .comment-content img, .entry-content img, .entry-summary img, .widget img, .wp-caption {
+    max-width: 100%;
+}
+img.size-full, img.size-large, img.wp-post-image {
+   /* height: auto; */
+    height: 150px;
+    max-width: 100%;
+}
+.widget--job_listing, .widget--resume {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+}
+.widget-title{
+	font-size: 12px!important;
+}
+.job-type.term-3, .job-type.part-time {
+    background-color: #735FEE;
+    padding: 3px 32px;
+}
+.job-meta.col-md-2 .application_button {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+}
+input.application_button[type="button"], input.resume_contact_button[type="button"] {
+    color: #7DC246;
+    background-color: transparent;
+    border-color: #7DC246;
+    padding: 12px 0px;
+font-weight: bold;
+font-size: 13px;
+}
+.job-type, .job_listing-type, .single-product .page-header .sale .onsale {
+    font: 700 12px Montserrat,sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: #FFF;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 3px 10px;
+}
+.page-title {
+    font-size: 34px;
+    margin-bottom: 2%;
+}
+.application_button{
+	font-size: 15px;
+}
+button, input[type="button"]{
+    display: inline-block;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.application_button, .button{
+    font: 700 18px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px 50px;
+    border-radius: 4px;
+    display: inline-block;
+    border-style: solid;
+    border-width: 2px;
+    transition: all 0.3s ease 0s;
+}
+input.application_button[type="button"]:hover{
+	background-color: #7DC246;
+	color: white;
+}
+aside{
+    display: block;
+}
