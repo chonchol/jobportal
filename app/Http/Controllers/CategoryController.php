@@ -29,7 +29,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        return view('jobs.addCategory');
+        return view('jobs.allCategory');
     }
 
     /**
@@ -50,7 +50,7 @@ class CategoryController extends Controller
         $category['categoryName'] = $request->input('categoryName');
         \Session::flash('flash_message','Category has been created Successfully!');
         Category::create($category);
-        return redirect(route('addCategory'));
+        return redirect(route('allCategory'));
     }
 
     /**

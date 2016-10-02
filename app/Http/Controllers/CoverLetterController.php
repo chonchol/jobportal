@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\CoverLetter;
 use App\Profile;
 use App\Http\Requests;
+use DB;
 
 class CoverLetterController extends Controller
 {
@@ -46,7 +47,8 @@ class CoverLetterController extends Controller
         ]);
 
         $coverletter = new CoverLetter();
-        //$coverletter->profileID = Profile::profile()->id;
+        $profile_id = DB::table('profiles')->select('id')->get();
+        $coverletter->profileID = $profile_id['id']->get;
         $coverletter["coverLetterTitle"] = $request->input('coverLetterTitle');
         $coverletter["actualText"] = $request->input('actualText');
 

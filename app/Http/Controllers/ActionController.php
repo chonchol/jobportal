@@ -76,6 +76,12 @@ class ActionController extends Controller
     public function store(Request $request)
     {
         //
+    $this->validate($request, [
+        'method' => 'required',
+        'uri' => 'required',
+        'action' => 'required',
+    ]);
+
         $action = [];
         $action['method'] = $request->input('method');
         $action['uri'] = $request->input('uri');
