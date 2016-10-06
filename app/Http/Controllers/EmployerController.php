@@ -49,9 +49,10 @@ class EmployerController extends Controller
 
         $employer = new Employer();
         $employer->userID = Auth::user()->id;
-        $employer->companyID = DB::table('employers')
+        $companies_data = DB::table('employers')
                                 ->leftJoin('companies','companies.id', '=', 'employers.companyID')
-                                ->get();
+                                ->first();
+        $employer->companyID=$companies_data->id;                        
         $employer["companySumamry"] = $request->input("companySumamry");
 
         $employer->save();

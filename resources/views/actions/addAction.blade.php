@@ -11,7 +11,7 @@
 
     </label>
     <div class="col-sm-3">
-        {!! Form::select('method',array('Select','GET','POST','PUT'), array('class' => 'form-control')) !!}
+        {!! Form::select('method',array('Select','GET','POST','PUT'),'', array('class' => 'form-control js-example-basic-single')) !!}
     </div>
 </div>
 <div class="form-group">
@@ -33,7 +33,7 @@
 </div>
 
 <div class="form-group">
-    <div class="col-sm-3">
+    <div class="col-sm-3 showcase sweet">
         {!! Form::submit('Add Action!', array('class' => 'btn btn-success pull-right')) !!}
     </div>
 </div>

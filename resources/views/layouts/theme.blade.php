@@ -19,6 +19,8 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{URL::asset('assets/plugins/owl-carousel/owl.carousel.css')}}">
     <link href="{{URL::asset('css/404.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
 
 
   </head>
@@ -87,6 +89,8 @@
     <script src="{{URL::asset('assets/plugins/owl-carousel/owl.carousel.js')}}"></script>
     <!-- FastClick -->
     <script src="{{URL::asset('assets/plugins/counter/jquery.countTo.js')}}"></script>
+    <script src="{{URL::asset('js/select2.min.js')}}"></script>
+    <script src="{{URL::asset('js/sweetalert.min.js')}}"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -116,6 +120,13 @@
         });
     });
 </script>
+<!-- select2 plugin -->
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $(".js-example-basic-single").select2();
+  });
+  </script>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

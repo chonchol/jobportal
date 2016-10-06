@@ -45,7 +45,9 @@ class PermissionController extends Controller
             reset($roles);
             while (list($roleKey,$roleVal)=each($roles)){
                 $roleName='role'.$val.$roleKey;
-                $stored=Permission::where('action_id','=',$val)->where('role_id','=',$roleKey)->get();
+                $stored=Permission::where('action_id','=',$val)
+                                    ->where('role_id','=',$roleKey)
+                                    ->get();
                 $storedRow=$stored->count();
                 if($input->$roleName=='on'){
                     if($storedRow==0){
@@ -56,7 +58,9 @@ class PermissionController extends Controller
                     }
                 }else{
                     if($storedRow){
-                        $data=Permission::where('action_id','=',$val)->where('role_id','=',$roleKey)->delete();
+                        $data=Permission::where('action_id','=',$val)
+                                        ->where('role_id','=',$roleKey)
+                                        ->delete();
                     }
                 }
 

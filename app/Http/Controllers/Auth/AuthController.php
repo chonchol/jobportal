@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Validator;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -64,7 +65,7 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'userName' => $data['userName'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{URL::asset('css/_all-skins.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/select2.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/jquery-ui.css')}}">
+    <link href="{{URL::asset('css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
 
   </head>
 
@@ -214,13 +215,33 @@
     <script src="{{URL::asset('js/demo.js')}}"></script>
     <script src="{{URL::asset('js/jquery-ui.js')}}"></script>
     <script src="{{URL::asset('js/select2.min.js')}}"></script>
+        <script src="{{URL::asset('js/sweetalert.min.js')}}"></script>
     <script>
     $(function() {
       $( "#datepicker" ).datepicker();
     });
   </script>
   <script type="text/javascript">
-    $(".js-example-basic-multiple").select2();
+  $(document).ready(function() {
+    $(".js-example-basic-single").select2();
+  });
   </script>
+  <script>
+    document.querySelector('.btn').onclick = function(){
+      swal({
+      title: "Are you sure?",
+      text: "Your will not be able to recover this imaginary file!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Yes, delete it!",
+      closeOnConfirm: false
+    },
+    function(){
+      swal("Deleted!", "Your imaginary file has been deleted.", "success");
+    });
+    };
+  </script>
+
   </body>
 </html>

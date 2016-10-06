@@ -131,6 +131,7 @@ Route::group(['prefix' => 'jobs','middleware' => 'auth'], function () {
     Route::post('save', ['as' => 'saveJob', 'uses' => 'JobController@store']);
     Route::put('update', ['as' => 'updateJob', 'uses' => 'JobController@update']);
     Route::get('delete/{id}', ['as' => 'deleteJob', 'uses' => 'JobController@destroy']);
+    Route::get('search', ['as' => 'searchJob', 'uses' => 'JobController@search']);
 
 });
 

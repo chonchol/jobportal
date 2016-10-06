@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Job;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
+use DB;
 
 class JobController extends Controller
 {
@@ -61,6 +63,7 @@ class JobController extends Controller
         $job['jobLocation'] = $request->input('jobLocation');
         $job['applicationEndDate'] = $request->input('applicationEndDate');
         $job['salary'] = $request->input('salary');
+        $job['jobCategory'] = $request->input('salary');
         $job['applicationInstruction'] = $request->input('applicationInstruction');
         $job['featuredJob'] = $request->input('featuredJob');
         $job['numberOfPosition'] = $request->input('numberOfPosition');
@@ -82,6 +85,17 @@ class JobController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function search()
+    {
+        // Gets the query string from our form submission 
+        $query = Input::get('search');
+        $jobs = DB::table('jobs')->where('jobTitle', 'LIKE', '%' . $query . '%')->paginate(10);
+        return view('searchJob', compact('jobs', 'query'));
+
+        //$jobs = Job::where('id','>=',1)->paginate(10);
+        //return view('searchJob',['jobs'=>$jobs]);
     }
 
     /**
