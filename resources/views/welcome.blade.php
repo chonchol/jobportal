@@ -25,6 +25,11 @@
 </span></a></li>
                             </ul>
                             @endforeach
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 64278e6c16af1c7551afbf3cb8111eed9b5c85bd
                         </select>
                     </div>
                 </form>
@@ -41,6 +46,7 @@
                             <h3>Job Category</h3>
                         </div>
                         <div class="widget-body">
+<<<<<<< HEAD
 
                             <ul class="trends">
 
@@ -53,6 +59,21 @@
 
                             </ul>
 
+=======
+                            @foreach($categories as $category)
+                            <ul class="trends">
+                                <li><a href="#">{{ $category->categoryName}} &nbsp;<span class="item-numbers">
+
+                                    <?php
+                                    $db = mysqli_connect("localhost", "root", "", "amarjobs");
+                                    $query = mysqli_query($db,"select count(categoryName) as total from categories");
+                                    $result = mysqli_fetch_array($query);
+                                    echo $result['total'];
+                                    ?>
+</span></a></li>
+                            </ul>
+                            @endforeach
+>>>>>>> 64278e6c16af1c7551afbf3cb8111eed9b5c85bd
                         </div>
                     </div>
                     <div class="widget">
@@ -60,6 +81,7 @@
                             <h3>Job Type</h3>
                         </div>
                         <div class="widget-body">
+<<<<<<< HEAD
                             <ul class="trends">
 
                                 <?php
@@ -69,6 +91,20 @@
                                     echo "<li><a href='#'> " .$result['type']. " &nbsp;<span class='item-numbers'>" .$result['total']. "</span></a></li>";
                                 }?>
                             </ul>
+=======
+                            @foreach($jobs as $job)
+                            <ul class="trends">
+                                <li><a href="#">{{ $job->jobType }} &nbsp;<span class="item-numbers">                 
+                                <?php
+                               // $db = mysqli_connect("localhost", "root", "", "amarjobs");
+                                $query = mysqli_query($db,"select count(jobType) as total from jobs");
+                                $result = mysqli_fetch_array($query);
+                                echo $result['total'];
+                                ?>
+                                </span></a></li>
+                            </ul>
+                            @endforeach
+>>>>>>> 64278e6c16af1c7551afbf3cb8111eed9b5c85bd
                         </div>
                     </div>
                     <div class="banner-widget">
@@ -94,7 +130,11 @@
                                             @endif
 
                                             <a style="margin-left:1%" href="#" class="btn btn-success btn-xs pull-right"><i class="fa fa-eye"></i></a>
+<<<<<<< HEAD
                                             <a href="" class="btn btn-default btn-xs pull-right"><i class="fa fa-heart"><input type="hidden" name="featuredJob" value="1" ></i></a>
+=======
+                                            <a href="#" class="btn btn-default btn-xs pull-right"><i class="fa fa-heart"></i></a>
+>>>>>>> 64278e6c16af1c7551afbf3cb8111eed9b5c85bd
                                         </h4>
                                         <p>Job Type: {{$job->jobType}} | Salary: {{$job->salary}} | Posted On: {{$job->created_at->format('Y-m-d')}}</p>
                                         <article>
@@ -156,6 +196,7 @@
                 <div class="col-md-3">
                     <div class="item-counter">
                         <span class="item-icon"><i class="fa fa-database"></i></span>
+<<<<<<< HEAD
                         <div data-refresh-interval="100" data-speed="3000"
                          data-to="<?php 
                              $query = mysqli_query($db,'SELECT count(id) as total_jobs from jobs');
@@ -164,6 +205,10 @@
                              ?>" data-from="0"
                              class="item-count">
 
+=======
+                        <div data-refresh-interval="100" data-speed="3000" data-to="7803" data-from="0"
+                             class="item-count">7803
+>>>>>>> 64278e6c16af1c7551afbf3cb8111eed9b5c85bd
                         </div>
                         <span class="item-info">Jobs</span>
                     </div>
@@ -171,12 +216,17 @@
                 <div class="col-md-3">
                     <div class="item-counter">
                         <span class="item-icon"><i class="fa fa-user-plus"></i></span>
+<<<<<<< HEAD
                         <div data-refresh-interval="50" data-speed="5000" data-to="<?php 
                              $query = mysqli_query($db,'SELECT count(id) as total_company from companies');
                              $result = mysqli_fetch_array($query);
                              echo $result['total_company'];
                              ?>" data-from="0"
                              class="item-count">
+=======
+                        <div data-refresh-interval="50" data-speed="5000" data-to="427" data-from="0"
+                             class="item-count">427
+>>>>>>> 64278e6c16af1c7551afbf3cb8111eed9b5c85bd
                         </div>
                         <span class="item-info">Company</span>
                     </div>
@@ -184,8 +234,13 @@
                 <div class="col-md-3">
                     <div class="item-counter">
                         <span class="item-icon"><i class="fa fa-map-marker"></i></span>
+<<<<<<< HEAD
                         <div data-refresh-interval="80" data-speed="5000" data-to="9" data-from="0"
                              class="item-count">9
+=======
+                        <div data-refresh-interval="80" data-speed="5000" data-to="639" data-from="0"
+                             class="item-count">639
+>>>>>>> 64278e6c16af1c7551afbf3cb8111eed9b5c85bd
                         </div>
                         <span class="item-info">Locations</span>
                     </div>
@@ -193,8 +248,13 @@
                 <div class="col-md-3">
                     <div class="item-counter">
                         <span class="item-icon"><i class="fa fa-users"></i></span>
+<<<<<<< HEAD
                         <div data-refresh-interval="80" data-speed="5000" data-to="15" data-from="0"
                              class="item-count">15
+=======
+                        <div data-refresh-interval="80" data-speed="5000" data-to="1548" data-from="0"
+                             class="item-count">1548
+>>>>>>> 64278e6c16af1c7551afbf3cb8111eed9b5c85bd
                         </div>
                         <span class="item-info">Job Seeker</span>
                     </div>
