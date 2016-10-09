@@ -227,7 +227,6 @@
   });
   </script>
   <script>
-<<<<<<< HEAD
     document.querySelector('.btn').onclick = function(){
       swal({
       title: "Are you sure?",
@@ -241,10 +240,6 @@
     function(){
       swal("Deleted!", "Your imaginary file has been deleted.", "success");
     });
-=======
-    document.querySelector('.showcase.sweet input').onclick = function(){
-      swal("Oops...", "Something went wrong!", "error");
->>>>>>> 64278e6c16af1c7551afbf3cb8111eed9b5c85bd
     };
   </script>
 
