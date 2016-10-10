@@ -2,7 +2,7 @@
 @section('title', 'Amar Jobs | All Role')
 
 @section('content')
-
+<a class="btn btn-success badge" href="{{route('addRole')}}">Add New Role</a>
 
     @if(count($roles))
         <table id="example2" class="table table-bordered table-hover" width="100%">

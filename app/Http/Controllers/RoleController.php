@@ -30,7 +30,7 @@ class RoleController extends Controller
     public function create()
     {
         //
-        return view(route('addRole'));
+        return view('roles.addRole');
     }
 
     /**

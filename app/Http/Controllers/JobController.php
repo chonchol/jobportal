@@ -122,6 +122,26 @@ class JobController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $id = $request->input("id");
+        $job = Profile::find($id);
+        $job->jobTitle = $request->input('jobTitle');
+        $job->jobSummary = $request->input('jobSummary');
+        $job->jobDescription = $request->input('jobDescription');
+        $job->jobType = $request->input('jobType');
+        $job->jobLocation = $request->input('jobLocation');
+        $job->applicationEndDate = $request->input('applicationEndDate');
+        $job->salary = $request->input('salary');
+        $job->jobCategory = $request->input('jobCategory');
+        $job->applicationInstruction = $request->input('applicationInstruction');
+        $job->featuredJob = $request->input('featuredJob');
+        $job->numberOfPosition = $request->input('numberOfPosition');
+        $job->minimumExperience = $request->input('minimumExperience');
+        $job->minimumAge = $request->input('minimumAge');
+        $job->others = $request->input('others');
+        
+        $job->save();
+         
+        return redirect(route('allJob'));
 
         
     }
